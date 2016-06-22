@@ -34,8 +34,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\http\HttpClientHelper.cs" />
     <Compile Include="src\http\HttpResponse.cs" />
-    <Compile Include="src\http\Unirest.cs" />
+    <Compile Include="src\http\LegacyHttpClientHelper.cs" />
+    <Compile Include="src\http\LegacyHttpResponse.cs" />
+    <Compile Include="src\http\LegacyUnirest.cs" />
     <Compile Include="src\request\HttpRequest.cs" />
+    <Compile Include="src\request\LegacyHttpRequest.cs" />
+    <Compile Include="src\UnirestClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

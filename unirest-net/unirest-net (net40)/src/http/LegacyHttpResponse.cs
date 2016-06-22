@@ -3,23 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace UnirestNet.Http
+namespace unirest_net.http
 {
     public class HttpResponse<T>
     {
         public int Code { get; private set; }
-
-        public Dictionary<string, string> Headers { get; private set; }
-
+        public Dictionary<String, String> Headers { get; private set; }
         public T Body { get; set; }
-
         public Stream Raw { get; private set; }
 
-        public HttpResponse(HttpResponseMessage response)
+        public HttpResponse(System.Net.Http.HttpResponseMessage response)
         {
             Headers = new Dictionary<string, string>();
             Code = (int)response.StatusCode;
@@ -30,7 +25,7 @@ namespace UnirestNet.Http
                 Task.WaitAll(streamTask);
                 Raw = streamTask.Result;
 
-                if (typeof(T) == typeof(string))
+                if (typeof(T) == typeof(String))
                 {
                     var stringTask = response.Content.ReadAsStringAsync();
                     Task.WaitAll(stringTask);

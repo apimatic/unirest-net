@@ -1,14 +1,14 @@
-﻿using UnirestNet.Request;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace UnirestNet.Http
+using unirest_net.request;
+
+namespace unirest_net.http
 {
     public class HttpClientHelper
     {
-        private const string USER_AGENT_HEADER = "user-agent";
-        private const string USER_AGENT = "unirest-net/2.0";
+        private const string USER_AGENT = "unirest-net/1.0";
 
         public static HttpResponse<T> Request<T>(HttpRequest request)
         {
@@ -31,13 +31,13 @@ namespace UnirestNet.Http
 
         private static Task<HttpResponseMessage> RequestHelper(HttpRequest request)
         {
-            if (!request.Headers.ContainsKey(USER_AGENT_HEADER))
+            if (!request.Headers.ContainsKey("user-agent"))
             {
-                request.AddHeader(USER_AGENT_HEADER, USER_AGENT);
+                request.Headers.Add("user-agent", USER_AGENT);
             }
 
             var client = new HttpClient();
-            var msg = new HttpRequestMessage(request.HttpMethod, request.Uri);
+            var msg = new HttpRequestMessage(request.HttpMethod, request.URL);
 
             foreach (var header in request.Headers)
             {
