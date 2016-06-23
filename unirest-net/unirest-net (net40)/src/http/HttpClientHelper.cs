@@ -57,10 +57,12 @@
 namespace unirest_net.http
 {
     using request;
+    using System;
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
 
+    [Obsolete("Use UnirestNet.Http.HttpClientHelper")]
     public class HttpClientHelper
     {
         private const string USER_AGENT = "unirest-net/1.0";

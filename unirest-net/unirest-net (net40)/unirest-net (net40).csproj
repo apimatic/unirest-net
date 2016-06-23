@@ -36,8 +36,6 @@
     <Compile Include="src\http\HttpResponse.cs" />
     <Compile Include="src\http\Unirest.cs" />
     <Compile Include="src\request\HttpRequest.cs" />
-    <Compile Include="src\request\LegacyHttpRequest.cs" />
-    <Compile Include="src\UnirestClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

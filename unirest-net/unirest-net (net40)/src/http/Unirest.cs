@@ -58,7 +58,6 @@
     }
 }
 
-
 namespace unirest_net.http
 {
     using System;

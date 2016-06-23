@@ -280,6 +280,8 @@ namespace unirest_net.request
     using System.Threading.Tasks;
 
     using unirest_net.http;
+
+    [Obsolete("Use UnirestNet.Request.HttpRequest")]
     public class HttpRequest
     {
         private UnirestNet.Request.HttpRequest _request;

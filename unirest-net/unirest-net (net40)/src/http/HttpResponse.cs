@@ -56,6 +56,9 @@
 
 namespace unirest_net.http
 {
+    using System;
+
+    [Obsolete("Use UnirestNet.Http.HttpResponse<T>")]
     public class HttpResponse<T> : UnirestNet.Http.HttpResponse<T>
     {
         public HttpResponse(System.Net.Http.HttpResponseMessage response) : base(response)
