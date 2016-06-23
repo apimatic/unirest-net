@@ -4,7 +4,7 @@
 
 [Unirest](http://unirest.io) is a set of lightweight HTTP libraries available in multiple languages, built and maintained by [Mashape](https://github.com/Mashape), who also maintain the open-source API Gateway [Kong](https://github.com/Mashape/kong). 
 
-This is a port of the Java library to .NET.
+This is a port of the Java library to .NET. The synctax has been improved to implement C# coding standards.
 
 ## Installing
 We're currently updating Nuget to point to the latest package.  In the meantime, please download this entire unirest-net library and reference it in your project.
@@ -13,26 +13,26 @@ We're currently updating Nuget to point to the latest package.  In the meantime,
 So you're probably wondering how using Unirest makes creating requests in .NET easier, here is a basic POST request that will explain everything:
 
 ```C#
-HttpResponse<MyClass> jsonResponse = Unirest.post("http://httpbin.org/post")
-  .header("accept", "application/json")
-  .field("parameter", "value")
-  .field("foo", "bar")
-  .asJson<MyClass>();
+HttpResponse<MyClass> jsonResponse = Unirest.Post("http://httpbin.org/post")
+  .AddHeader("accept", "application/json")
+  .AddField("parameter", "value")
+  .AddField("foo", "bar")
+  .AsJson<MyClass>();
 ```
 
-Requests are made when `as[Type]()` is invoked, possible types include `Json`, `Binary`, `String`. If the request supports this, a body  can be passed along with `.body(String)` or `body<T>(T)` to serialize an arbitrary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a `.fields(Dictionary<string, object> parameters)` method that will serialize each key - value to form parameters on your request.
+Requests are made when `As[Type]()` is invoked, possible types include `Json`, `Binary`, `string`. If the request supports this, a body  can be passed along with `.SetBody(string)` or `SetBody<T>(T)` to serialize an arbitrary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a `.AddFields(Dictionary<string, object> parameters)` method that will serialize each key - value to form parameters on your request.
 
-`.headers(Dictionary<string, string> headers)` is also supported in replacement of multiple header methods.
+`.AddHeaders(Dictionary<string, string> headers)` is also supported in replacement of multiple header methods.
 
 ## Asynchronous Requests
 Sometimes, well most of the time, you want your application to be asynchronous and not block, Unirest supports this in .NET with the TPL pattern and async/await:
 
 ```C#
-Task<HttpResponse<MyClass>> myClassTask = Unirest.post("http://httpbin.org/post")
-  .header("accept", "application/json")
-  .field("param1", "value1")
-  .field("param2", "value2")
-  .asJsonAsync<MyClass>();
+Task<HttpResponse<MyClass>> myClassTask = Unirest.Post("http://httpbin.org/post")
+  .AddHeader("accept", "application/json")
+  .AddField("param1", "value1")
+  .AddField("param2", "value2")
+  .AsJsonAsync<MyClass>();
 ```
 
 ## File Uploads
@@ -40,11 +40,11 @@ Creating `multipart` requests with .NET is trivial, simply pass along a `Stream`
 
 ```C#
 byte[] data = File.ReadAllBytes(@"filePath");
-HttpResponse<MyClass> myClass = Unirest.post("http://httpbin.org/post")
-  .header("accept", "application/json")
-  .field("parameter", "value")
-  .field("files", data)
-  .asJson<MyClass>();
+HttpResponse<MyClass> myClass = Unirest.Post("http://httpbin.org/post")
+  .AddHeader("accept", "application/json")
+  .AddField("parameter", "value")
+  .AddField("files", data)
+  .AAJson<MyClass>();
 ```
 
 ## Custom Entity Body
@@ -61,11 +61,11 @@ HttpResponse<MyClass> myClass = Unirest.post("http://httpbin.org/post")
 The .NET Unirest library follows the builder style conventions. You start building your request by creating a `HttpRequest` object using one of the following:
 
 ```C#
-HttpRequest request = Unirest.get(String url);
-HttpRequest request = Unirest.post(String url);
-HttpRequest request = Unirest.put(String url);
-HttpRequest request = Unirest.patch(String url);
-HttpRequest request = Unirest.delete(String url);
+HttpRequest request = Unirest.Get(string url);
+HttpRequest request = Unirest.Post(string url);
+HttpRequest request = Unirest.Put(string url);
+HttpRequest request = Unirest.Patch(string url);
+HttpRequest request = Unirest.Delete(string url);
 ```
 
 # Response
