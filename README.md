@@ -50,10 +50,10 @@ HttpResponse<MyClass> myClass = Unirest.Post("http://httpbin.org/post")
 ## Custom Entity Body
 
 ```C#
-HttpResponse<MyClass> myClass = Unirest.post("http://httpbin.org/post")
-  .header("accept", "application/json")
-  .body("{\"parameter\":\"value\", \"foo\":\"bar\"}")
-  .asJson<MyClass>();
+HttpResponse<MyClass> myClass = Unirest.Post("http://httpbin.org/post")
+  .AddHeader("accept", "application/json")
+  .SetBody("{\"parameter\":\"value\", \"foo\":\"bar\"}")
+  .AsJson<MyClass>();
 ```
 
 # Request
@@ -68,6 +68,8 @@ HttpRequest request = Unirest.Patch(string url);
 HttpRequest request = Unirest.Delete(string url);
 ```
 
+Uri objects are also accepted.
+
 # Response
 
 Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.
@@ -76,6 +78,16 @@ Upon recieving a response Unirest returns the result in the form of an Object, t
 - `.Headers` - HTTP Response Headers
 - `.Body` - Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.
 - `.Raw` - Un-parsed response body
+
+## QueryString building
+
+Adding query string parameters is a breeze. Portable solutions cannot rely on the HttpUtility.
+
+```C#
+HttpResponse<string> myClass = Unirest.Get("http://httpbin.org/html")
+  .AddQueryStringParameter("test", "true")
+  .AsString();
+```
 
 ----
 
