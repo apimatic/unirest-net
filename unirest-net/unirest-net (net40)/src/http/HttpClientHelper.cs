@@ -8,7 +8,7 @@
     public static class HttpClientHelper
     {
         private const string USER_AGENT_HEADER = "user-agent";
-        private const string USER_AGENT = "unirest-net/1.0";
+        private const string USER_AGENT = "unirest-net/1.1";
 
         public static HttpResponse<T> Request<T>(HttpRequest request)
         {
@@ -65,7 +65,7 @@ namespace unirest_net.http
     [Obsolete("Use UnirestNet.Http.HttpClientHelper")]
     public class HttpClientHelper
     {
-        private const string USER_AGENT = "unirest-net/1.0";
+        private const string USER_AGENT = "unirest-net/1.1";
 
         public static HttpResponse<T> Request<T>(HttpRequest request)
         {
