@@ -1,14 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnirestNet.Http
+﻿namespace UnirestNet.Http
 {
+    using Newtonsoft.Json;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+
     public class HttpResponse<T>
     {
         public int Code { get; private set; }
@@ -52,6 +50,16 @@ namespace UnirestNet.Http
             {
                 Headers.Add(header.Key, header.Value.First());
             }
+        }
+    }
+}
+
+namespace unirest_net.http
+{
+    public class HttpResponse<T> : UnirestNet.Http.HttpResponse<T>
+    {
+        public HttpResponse(System.Net.Http.HttpResponseMessage response) : base(response)
+        {
         }
     }
 }
