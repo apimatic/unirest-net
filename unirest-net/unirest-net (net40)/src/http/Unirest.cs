@@ -4,53 +4,109 @@
     using System.Net.Http;
     using UnirestNet.Request;
 
+    /// <summary>
+    /// Entry point for creating HTTP requests.
+    /// </summary>
     public class Unirest
     {
+        /// <summary>
+        /// Creates a GET using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Get(string url)
         {
             return new HttpRequest(HttpMethod.Get, url);
         }
 
+        /// <summary>
+        /// Creates a GET using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Get(Uri uri)
         {
             return new HttpRequest(HttpMethod.Get, uri);
         }
+
+        /// <summary>
+        /// Creates a POST using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
 
         public static HttpRequest Post(string url)
         {
             return new HttpRequest(HttpMethod.Post, url);
         }
 
+        /// <summary>
+        /// Creates a POST using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
+
         public static HttpRequest Post(Uri uri)
         {
             return new HttpRequest(HttpMethod.Post, uri);
         }
+
+        /// <summary>
+        /// Creates a DELETE using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
 
         public static HttpRequest Delete(string url)
         {
             return new HttpRequest(HttpMethod.Delete, url);
         }
 
+        /// <summary>
+        /// Creates a DELETE using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Delete(Uri uri)
         {
             return new HttpRequest(HttpMethod.Get, uri);
         }
 
+        /// <summary>
+        /// Creates a PATCH using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Patch(string url)
         {
             return new HttpRequest(new HttpMethod("PATCH"), url);
         }
 
+        /// <summary>
+        /// Creates a PATCH using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Patch(Uri uri)
         {
             return new HttpRequest(new HttpMethod("PATCH"), uri);
         }
 
+        /// <summary>
+        /// Creates a PUT using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Put(string url)
         {
             return new HttpRequest(HttpMethod.Put, url);
         }
 
+        /// <summary>
+        /// Creates a PUT using the specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>A request.</returns>
         public static HttpRequest Put(Uri uri)
         {
             return new HttpRequest(HttpMethod.Put, uri);
