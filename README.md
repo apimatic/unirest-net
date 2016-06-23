@@ -50,7 +50,7 @@ HttpResponse<MyClass> myClass = Unirest.Post("http://httpbin.org/post")
 ## Custom Entity Body
 
 ```C#
-HttpResponse<MyClass> myClass = Unirest.post("http://httpbin.org/post")
+HttpResponse<MyClass> myClass = Unirest.Post("http://httpbin.org/post")
   .header("accept", "application/json")
   .body("{\"parameter\":\"value\", \"foo\":\"bar\"}")
   .asJson<MyClass>();
