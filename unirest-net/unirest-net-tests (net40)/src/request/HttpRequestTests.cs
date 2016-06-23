@@ -166,11 +166,11 @@ namespace unirest_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com");
             var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com");
 
-            Get.asString().Body.Should().NotBeBlank();
-            Post.asString().Body.Should().NotBeBlank();
-            Delete.asString().Body.Should().NotBeBlank();
-            Patch.asString().Body.Should().NotBeBlank();
-            Put.asString().Body.Should().NotBeBlank();
+            Get.asString().Body.Should().NotBeNullOrEmpty();
+            Post.asString().Body.Should().NotBeNullOrEmpty();
+            Delete.asString().Body.Should().NotBeNullOrEmpty();
+            Patch.asString().Body.Should().NotBeNullOrEmpty();
+            Put.asString().Body.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
@@ -198,11 +198,11 @@ namespace unirest_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com");
             var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com");
 
-            Get.asJson<String>().Body.Should().NotBeBlank();
-            Post.asJson<String>().Body.Should().NotBeBlank();
-            Delete.asJson<String>().Body.Should().NotBeBlank();
-            Patch.asJson<String>().Body.Should().NotBeBlank();
-            Put.asJson<String>().Body.Should().NotBeBlank();
+            Get.asJson<String>().Body.Should().NotBeNullOrEmpty();
+            Post.asJson<String>().Body.Should().NotBeNullOrEmpty();
+            Delete.asJson<String>().Body.Should().NotBeNullOrEmpty();
+            Patch.asJson<String>().Body.Should().NotBeNullOrEmpty();
+            Put.asJson<String>().Body.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
@@ -216,11 +216,11 @@ namespace unirest_net_tests.request
 
             Task.WaitAll(Get, Post, Delete, Patch, Put);
 
-            Get.Result.Body.Should().NotBeBlank();
-            Post.Result.Body.Should().NotBeBlank();
-            Delete.Result.Body.Should().NotBeBlank();
-            Patch.Result.Body.Should().NotBeBlank();
-            Put.Result.Body.Should().NotBeBlank();
+            Get.Result.Body.Should().NotBeNullOrEmpty();
+            Post.Result.Body.Should().NotBeNullOrEmpty();
+            Delete.Result.Body.Should().NotBeNullOrEmpty();
+            Patch.Result.Body.Should().NotBeNullOrEmpty();
+            Put.Result.Body.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
@@ -252,11 +252,11 @@ namespace unirest_net_tests.request
 
             Task.WaitAll(Get, Post, Delete, Patch, Put);
 
-            Get.Result.Body.Should().NotBeBlank();
-            Post.Result.Body.Should().NotBeBlank();
-            Delete.Result.Body.Should().NotBeBlank();
-            Patch.Result.Body.Should().NotBeBlank();
-            Put.Result.Body.Should().NotBeBlank();
+            Get.Result.Body.Should().NotBeNullOrEmpty();
+            Post.Result.Body.Should().NotBeNullOrEmpty();
+            Delete.Result.Body.Should().NotBeNullOrEmpty();
+            Patch.Result.Body.Should().NotBeNullOrEmpty();
+            Put.Result.Body.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
